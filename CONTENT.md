@@ -25,7 +25,7 @@ Example content that will be ingested and distilled by the agent operating the L
 - https://www.youtube.com/shorts/QXngc9MFIGY
 
 ### Taiki
-- https://youtu.be/oSrg5Awm0jU
+- https://www.youtube.com/watch?v=oSrg5Awm0jU
 - https://www.youtube.com/watch?v=gj4WVO67NR8
 
 ### 1000x

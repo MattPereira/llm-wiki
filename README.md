@@ -1,10 +1,10 @@
-# Building an LLM Wiki
+# LLM Wiki
 
-**Core Problem:** Too much information for human to ingest
+**Core Problem:** Too much content for human to ingest
 **Goal:** Figure out best strategies to summarize and distill information to save time
 
 ## Resources
-A collection of information for various strategies to build an LLM powered knowledge base or wiki
+Information about various strategies for building an LLM powered knowledge base / wiki
 
 ### Karpathy LLM Wiki Guide
 - https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f

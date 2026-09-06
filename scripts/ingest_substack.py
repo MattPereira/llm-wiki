@@ -3,7 +3,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["beautifulsoup4==4.15.0"]
 # ///
-"""Fetch a Substack post and write it as Markdown into content/substack/.
+"""Fetch a Substack post and write it as Markdown into raw/substack/.
 
 Usage:  uv run scripts/ingest_substack.py <url> [--force]
 Prints the written path on stdout. Everything else goes to stderr.
@@ -26,7 +26,7 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString
 
-CONTENT_DIR = Path(__file__).resolve().parent.parent / "content" / "substack"
+RAW_DIR = Path(__file__).resolve().parent.parent / "raw" / "substack"
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"
 WARN_WORDS = 20  # an ignored element holding more than this is probably content, not chrome
 
@@ -223,7 +223,7 @@ def publication(post: dict, host: str) -> tuple[str, str]:
 
 
 def already_ingested(post_id):
-    for path in CONTENT_DIR.rglob("*.md"):
+    for path in RAW_DIR.rglob("*.md"):
         if f"post_id: {post_id}" in path.read_text(encoding="utf-8"):
             return path
     return None
@@ -294,7 +294,7 @@ def main():
         die(EXIT_FETCH, f"no body content in {post.get('canonical_url') or args.url}")
 
     name, pub_slug = publication(post, host)
-    out = CONTENT_DIR / pub_slug
+    out = RAW_DIR / pub_slug
     out.mkdir(parents=True, exist_ok=True)
     date = (post.get("post_date") or "")[:10] or "undated"
     path = out / f"{date}-{slugify(post.get('slug') or '', str(post.get('id')))}.md"

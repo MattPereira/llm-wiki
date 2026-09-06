@@ -3,7 +3,7 @@
 # requires-python = ">=3.11"
 # dependencies = []
 # ///
-"""Fetch a YouTube transcript and write it as Markdown into content/youtube/.
+"""Fetch a YouTube transcript and write it as Markdown into raw/youtube/.
 
 Usage:  uv run scripts/ingest_youtube.py <url> [--force]
 Prints the written path on stdout. Everything else goes to stderr.
@@ -24,7 +24,7 @@ from pathlib import Path
 YT_DLP_VERSION = "2026.08.19"  # pinned: YouTube breaks stale yt-dlp builds outright
 BLOCK_MS = 60_000  # target paragraph length; blocks always end on a sentence boundary
 SNAP_MS = 20_000  # chapter marks routinely land mid-sentence; hunt this far for a sentence end
-CONTENT_DIR = Path(__file__).resolve().parent.parent / "content" / "youtube"
+RAW_DIR = Path(__file__).resolve().parent.parent / "raw" / "youtube"
 
 EXIT_FETCH, EXIT_NO_TRANSCRIPT, EXIT_RATE_LIMITED = 1, 2, 3
 
@@ -158,7 +158,7 @@ def to_sections(words: list, chapters: list | None) -> list[tuple[str | None, li
 
 
 def already_ingested(video_id: str):
-    for path in CONTENT_DIR.rglob("*.md"):
+    for path in RAW_DIR.rglob("*.md"):
         if f"video_id: {video_id}" in path.read_text(encoding="utf-8"):
             return path
     return None
@@ -231,7 +231,7 @@ def main():
 
         raw_date = meta.get("upload_date") or ""
         date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:]}" if raw_date else "undated"
-        out = CONTENT_DIR / slugify(meta.get("channel") or meta.get("uploader") or "", meta["id"])
+        out = RAW_DIR / slugify(meta.get("channel") or meta.get("uploader") or "", meta["id"])
         out.mkdir(parents=True, exist_ok=True)
         path = out / f"{date}-{slugify(meta.get('title') or '', meta['id'])}.md"
         path.write_text(render(meta, sections, source), encoding="utf-8")

@@ -1,6 +1,6 @@
 ---
 name: ingest-youtube
-description: Ingest a YouTube video into the wiki and give its transcript real structure. Use when adding a YouTube URL to content/, running scripts/ingest_youtube.py, or re-paragraphing and titling a transcript already ingested.
+description: Ingest a YouTube video into the wiki and give its transcript real structure. Use when adding a YouTube URL to raw/, running scripts/ingest_youtube.py, or re-paragraphing and titling a transcript already ingested.
 ---
 
 # Ingest a YouTube video

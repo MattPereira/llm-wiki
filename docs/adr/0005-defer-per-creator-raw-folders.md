@@ -1,6 +1,6 @@
 # ADR-0005: Keep `raw/` organised by platform, for now
 
-**Status:** accepted, with a known defect · 2026-09-06
+**Status:** superseded by [ADR-0006](./0006-raw-organised-per-creator.md) · 2026-09-06
 
 ## Context
 
@@ -27,5 +27,5 @@ creators.
 Deferred so the first distillation experiment happens sooner. Cost of waiting is low
 at nine files and rises with each ingest.
 
-Open questions and the affected code sites are captured in the handoff at
-`/tmp/handoff-raw-per-creator-restructure.md`.
+Superseded the same day. The deferral priced the merge as needing a display-name
+identity map and an unmapped-creator policy; ADR-0006 needs neither.

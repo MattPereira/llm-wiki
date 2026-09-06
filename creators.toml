@@ -1,0 +1,33 @@
+# Maps the folder slug each ingest script derives from platform metadata to the
+# canonical creator folder under raw/ and wiki/. See ADR-0006.
+#
+# The keys on the right are what the scripts already produce: slugify(channel) for
+# YouTube, the publication subdomain for Substack. An unmapped key auto-creates a
+# folder from itself and warns -- add an entry here and `git mv` to reconcile.
+#
+# Renames APPEND an alias, never edit one, so files already in raw/ never move twice.
+
+[kyla-scanlon]
+name = "Kyla Scanlon"
+youtube = ["kyla-scanlon"]
+substack = ["kyla"]
+
+[arthur-hayes]
+name = "Arthur Hayes"
+substack = ["cryptohayes"]
+
+[taiki-maeda]
+name = "Taiki Maeda"
+youtube = ["taiki-maeda"]
+
+["1000x"]
+name = "1000x"
+youtube = ["1000x"]
+
+[crypto-narratives]
+name = "Crypto Narratives"
+substack = ["cryptonarratives"]
+
+[the-big-berbowski]
+name = "TheBigBerbowski Investing"
+substack = ["thebigberbowski"]

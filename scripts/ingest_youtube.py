@@ -3,7 +3,7 @@
 # requires-python = ">=3.11"
 # dependencies = []
 # ///
-"""Fetch a YouTube transcript and write it as Markdown into raw/youtube/.
+"""Fetch a YouTube transcript and write it as Markdown into raw/<creator>/.
 
 Usage:  uv run scripts/ingest_youtube.py <url> [--force]
 Prints the written path on stdout. Everything else goes to stderr.
@@ -21,10 +21,11 @@ import sys
 import tempfile
 from pathlib import Path
 
+from creators import RAW_DIR, resolve, target
+
 YT_DLP_VERSION = "2026.08.19"  # pinned: YouTube breaks stale yt-dlp builds outright
 BLOCK_MS = 60_000  # target paragraph length; blocks always end on a sentence boundary
 SNAP_MS = 20_000  # chapter marks routinely land mid-sentence; hunt this far for a sentence end
-RAW_DIR = Path(__file__).resolve().parent.parent / "raw" / "youtube"
 
 EXIT_FETCH, EXIT_NO_TRANSCRIPT, EXIT_RATE_LIMITED = 1, 2, 3
 
@@ -231,9 +232,12 @@ def main():
 
         raw_date = meta.get("upload_date") or ""
         date = f"{raw_date[:4]}-{raw_date[4:6]}-{raw_date[6:]}" if raw_date else "undated"
-        out = RAW_DIR / slugify(meta.get("channel") or meta.get("uploader") or "", meta["id"])
-        out.mkdir(parents=True, exist_ok=True)
-        path = out / f"{date}-{slugify(meta.get('title') or '', meta['id'])}.md"
+        channel = slugify(meta.get("channel") or meta.get("uploader") or "", meta["id"])
+        path = target(
+            resolve("youtube", channel),
+            f"{date}-{slugify(meta.get('title') or '', meta['id'])}.md",
+            f"video_id: {meta['id']}",
+        )
         path.write_text(render(meta, sections, source), encoding="utf-8")
 
     print(path)

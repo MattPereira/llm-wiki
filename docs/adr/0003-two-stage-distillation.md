@@ -27,8 +27,10 @@ One agent pass per source producing one file, with two composed rule sets:
 
 1. **Extract**, keyed on the `type` frontmatter field (`YouTube Transcript` /
    `Substack Post`) — what to ignore.
-2. **Distill**, keyed on creator as a proxy for genre — what to emit. One base
-   shape; per-creator overrides only where the genre demands different fields.
+2. **Distill**, keyed on `(creator, type)` as a proxy for genre — what to emit. One
+   base shape; overrides only where the genre demands different fields, falling back
+   to creator alone. The `type` half matters because ADR-0006 puts a creator's
+   3-minute shorts and 7,000-word essays in one folder.
 
 Both start as prompt sections, not files on disk.
 

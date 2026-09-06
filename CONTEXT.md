@@ -14,8 +14,9 @@ saves no time has failed, because an unused wiki teaches nothing.
 - **Raw** — a fetched source document, verbatim. Lives in `raw/`. Immutable.
 - **Wiki** — an agent-written distillation. Lives in `wiki/`. Regenerable.
 - **Source** — one raw document (a video, a post). The unit of ingestion.
-- **Creator** — the person or publication a source comes from. Currently the folder
-  key inside `raw/`, split per platform. See ADR-0005.
+- **Creator** — a single editorial identity that publishes, regardless of how many
+  humans are behind it. Kyla Scanlon is a creator; so are 1000x and Steady Lads.
+  The folder key inside `raw/` and `wiki/`. See ADR-0006.
 - **Medium** — YouTube transcript vs. Substack post. Carried in the `type`
   frontmatter field. Determines what a distiller *ignores*.
 - **Genre** — the shape of a piece: earnings review, single-asset thesis, macro

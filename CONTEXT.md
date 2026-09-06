@@ -37,8 +37,8 @@ wiki/       agent-owned distillations       — regenerable; the human reads, ne
 AGENTS.md   the schema                      — how the agent maintains the other two
 ```
 
-`raw/` is the source of truth and some of it is not re-fetchable (YouTube
-auto-transcripts disappear). Move those files with `git mv`; never regenerate them.
+`raw/` is the source of truth and is not reproducible. Move files with `git mv`;
+never regenerate them.
 
 `wiki/` is disposable by design. Improving a distill means changing the prompt and
 regenerating, not hand-editing the output — that is what makes bulk re-runs a usable

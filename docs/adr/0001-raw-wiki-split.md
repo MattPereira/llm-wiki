@@ -23,10 +23,10 @@ orphans or re-distill in bulk without parsing frontmatter.
 ## Consequences
 
 Rejected the single-file layout because the two have different lifecycles. A raw
-file is fetched once and often cannot be re-fetched — YouTube auto-transcripts
-disappear. A distill is regenerated every time the prompt improves. Colocating them
-means every re-distill rewrites the source of truth, puts a 7,400-word essay in the
-diff of every prompt tweak, and gives one frontmatter block two owners.
+file is fetched once and is not reproducible. A distill is regenerated every time
+the prompt improves. Colocating them means every re-distill rewrites the source of
+truth, puts a 7,400-word essay in the diff of every prompt tweak, and gives one
+frontmatter block two owners.
 
 Inputs are not rewritten by the things that consume them.
 

@@ -1,4 +1,5 @@
 ---
+type: Substack Post
 title: "August 2026 recap: narratives, best-performers, and coins to watch"
 subtitle: "Huge BTC green candle to $80k, and on-chain mania on Robinhood chain"
 publication: "Crypto Narratives"

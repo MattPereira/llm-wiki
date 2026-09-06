@@ -1,4 +1,5 @@
 ---
+type: Substack Post
 title: "How to Get Rich in America"
 subtitle: "on wealth vs labor and ownership vs effort"
 publication: "Kyla’s Newsletter"

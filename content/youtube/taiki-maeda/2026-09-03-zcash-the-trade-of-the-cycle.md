@@ -1,4 +1,5 @@
 ---
+type: YouTube Transcript
 title: "Zcash: The Trade of the Cycle."
 channel: "Taiki Maeda"
 url: https://www.youtube.com/watch?v=oSrg5Awm0jU

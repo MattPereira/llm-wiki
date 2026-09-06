@@ -1,4 +1,5 @@
 ---
+type: Substack Post
 title: "Credo Technology $CRDO: Q1 2027 Earnings Review"
 subtitle: ""
 publication: "TheBigBerbowski Investing"

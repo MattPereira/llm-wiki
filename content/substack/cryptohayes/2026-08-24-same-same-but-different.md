@@ -1,4 +1,5 @@
 ---
+type: Substack Post
 title: "Same Same But Different"
 subtitle: ""
 publication: "Crypto Trader Digest"

@@ -240,6 +240,7 @@ def render(post: dict, blocks: list[str], footnotes: list[str], publication: str
 
     lines = [
         "---",
+        "type: Substack Post",
         f'title: "{q(title)}"',
         f'subtitle: "{q(subtitle)}"',
         f'publication: "{q(publication)}"',

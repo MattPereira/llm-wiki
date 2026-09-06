@@ -176,6 +176,7 @@ def render(meta: dict, sections: list, source: str) -> str:
 
     lines = [
         "---",
+        "type: YouTube Transcript",
         f'title: "{title.replace(chr(34), chr(39))}"',
         f'channel: "{channel.replace(chr(34), chr(39))}"',
         f"url: {url}",

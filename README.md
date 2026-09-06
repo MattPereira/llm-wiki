@@ -11,7 +11,7 @@ Information about various strategies for building an LLM powered knowledge base 
 
 ### Google Open Knowledge Format (OKF)
 - https://cloud.google.com/blog/products/data-analytics/how-the-open-knowledge-format-can-improve-data-sharing 
-- https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf
+- https://github.com/GoogleCloudPlatform/open-knowledge-format
 
 ### Example LLM Wiki Repositories
 - https://github.com/nashsu/llm_wiki?utm_source=chatgpt.com

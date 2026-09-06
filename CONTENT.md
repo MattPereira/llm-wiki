@@ -6,9 +6,13 @@ Example content that will be ingested and distilled by the agent operating the L
 - https://substack.com/home/post/p-213886583
 - https://substack.com/home/post/p-212594779
 
-### SemiAnalysis
-- https://newsletter.semianalysis.com/p/koreas-trillion-dollar-sovereign
-- https://newsletter.semianalysis.com/p/openai-jalapeno-better-than-nvidia
+### Kyla Scanlon
+- https://substack.com/@kyla/p-210617480
+
+### Crypto Narratives
+- Mixed publication: monthly recaps are free, `best-trades-of-*` posts are paid and get skipped
+- https://cryptonarratives.substack.com/p/august-2026-recap-narratives-best
+- https://cryptonarratives.substack.com/p/best-trades-of-august-2026
 
 ### Degen Trading
 - TODO LATER: this case is weird cus daily market thoughts and alot of quirky abbreviations
@@ -16,7 +20,8 @@ Example content that will be ingested and distilled by the agent operating the L
 - https://substack.com/@degentradingdaily
 
 ### TheBigBerbowski
-- https://substack.com/@thebigberbowski/note/c-327893286
+- https://substack.com/home/post/p-213762312
+
 
 ## Youtube
 

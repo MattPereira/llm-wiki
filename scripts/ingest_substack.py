@@ -67,7 +67,7 @@ def get(url: str) -> tuple[str, bytes]:
         die(EXIT_FETCH, f"fetch failed: {e} for {url}")
 
 
-def resolve(url: str) -> tuple[str, str]:
+def canonical(url: str) -> tuple[str, str]:
     """Follow the share URL to its canonical home.
 
     substack.com/home/post/p-<id> and substack.com/@user/p-<id> are both redirects
@@ -274,7 +274,7 @@ def main():
     parser.add_argument("--force", action="store_true", help="re-ingest even if already present")
     args = parser.parse_args()
 
-    host, slug = resolve(args.url)
+    host, slug = canonical(args.url)
     post = fetch_post(host, slug)
 
     audience = post.get("audience")

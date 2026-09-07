@@ -34,7 +34,7 @@ FEED = "https://www.youtube.com/feeds/videos.xml?"
 SINCE = "2026-08-01"
 LIMIT = 5  # newest N per creator inside the window; the floor alone is unbounded,
 # and a daily publisher would otherwise crowd out everyone else
-SLEEP_YT = 45  # seconds between YouTube fetches
+SLEEP_YT = 10  # seconds between YouTube fetches
 SLEEP_SUB = 3  # Substack is a plain JSON API and needs only token politeness
 
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36"

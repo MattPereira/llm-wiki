@@ -6,28 +6,48 @@
 # folder from itself and warns -- add an entry here and `git mv` to reconcile.
 #
 # Renames APPEND an alias, never edit one, so files already in raw/ never move twice.
+#
+# `youtube` / `substack` are the derived slugs to match. `channel` / `host` are where
+# scripts/backfill.py goes looking for new items; a creator without them is never
+# backfilled, which is how degen-trading stays out until its ingestion is solved.
 
 [kyla-scanlon]
 name = "Kyla Scanlon"
 youtube = ["kyla-scanlon"]
 substack = ["kyla"]
+channel = "https://www.youtube.com/channel/UC-J8PybPmYl6VJbu8sCRdHQ"
+host = "https://kyla.substack.com"
 
 [arthur-hayes]
 name = "Arthur Hayes"
 substack = ["cryptohayes"]
+host = "https://cryptohayes.substack.com"
 
 [taiki-maeda]
 name = "Taiki Maeda"
 youtube = ["taiki-maeda"]
+channel = "https://www.youtube.com/channel/UC7B3Y1yrg4S7mmgoR-NsfxA"
 
 ["1000x"]
 name = "1000x"
 youtube = ["1000x"]
+channel = "https://www.youtube.com/channel/UCEAwYFRFUuekaEmKz4oiB_A"
+# The channel posts ~2 clips per episode and they are worth nothing on their own.
+# Lists via the long-form uploads playlist so YouTube filters them out for us.
+long_form_only = true
 
 [crypto-narratives]
 name = "Crypto Narratives"
 substack = ["cryptonarratives"]
+host = "https://cryptonarratives.substack.com"
 
 [the-big-berbowski]
 name = "TheBigBerbowski Investing"
 substack = ["thebigberbowski"]
+host = "https://thebigberbowski.substack.com"
+
+[steady-lads]
+name = "Steady Lads"
+# the channel is "Steady Lads Podcast", which is what slugify() produces
+youtube = ["steady-lads-podcast"]
+channel = "https://www.youtube.com/channel/UC5K-A8n6phru-uNF6TzH5vQ"

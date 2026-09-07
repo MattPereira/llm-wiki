@@ -158,6 +158,12 @@ def to_sections(words: list, chapters: list | None) -> list[tuple[str | None, li
     return sections or [(None, to_paragraphs(words))]
 
 
+def video_id_from_url(url: str) -> str | None:
+    """The id as it appears in a watch/share/embed URL, or None if it isn't one."""
+    match = re.search(r"(?:v=|youtu\.be/|/embed/|/shorts/)([A-Za-z0-9_-]{11})", url)
+    return match.group(1) if match else None
+
+
 def already_ingested(video_id: str):
     for path in RAW_DIR.rglob("*.md"):
         if f"video_id: {video_id}" in path.read_text(encoding="utf-8"):
@@ -211,15 +217,26 @@ def main():
     parser.add_argument("--force", action="store_true", help="re-ingest even if already present")
     args = parser.parse_args()
 
+    def skip(existing: Path) -> None:
+        print(f"already ingested: {existing}", file=sys.stderr)
+        print(existing)
+
+    # Check before fetching where the URL carries the id: a fetch is the throttled
+    # resource, and backfill re-offers already-ingested videos on every run.
+    vid = video_id_from_url(args.url)
+    if vid and not args.force:
+        existing = already_ingested(vid)
+        if existing:
+            return skip(existing)
+
     with tempfile.TemporaryDirectory() as tmp:
         workdir = Path(tmp)
         meta = fetch(args.url, workdir)
 
+        # Still needed: playlist and redirect URLs carry no id to check up front.
         existing = already_ingested(meta["id"])
         if existing and not args.force:
-            print(f"already ingested: {existing}", file=sys.stderr)
-            print(existing)
-            return
+            return skip(existing)
 
         track, source = pick_track(meta, workdir)
         if track is None:

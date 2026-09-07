@@ -50,8 +50,8 @@ The extract stage must preserve speaker attribution for dialogue sources. Only 1
 is a dialogue today, and "Avi said X, Jonah pushed back" is real signal that would
 otherwise vanish silently.
 
-Filler-stripping cannot move into `wiki/raw/`: the `ingest-youtube` skill enforces
-verbatim and states that summarization happens downstream against that record.
+Filler-stripping cannot move into `wiki/raw/`: the raw layer is verbatim, and
+summarization happens downstream against that record.
 
 No cleaned-transcript intermediate artifact. It would make re-running the summarizer
 on the 16k-word podcast cheaper, but it is a third copy of the corpus for a problem

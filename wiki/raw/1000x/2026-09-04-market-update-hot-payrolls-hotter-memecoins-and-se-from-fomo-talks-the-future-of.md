@@ -1,5 +1,6 @@
 ---
 type: YouTube Transcript
+format: video
 title: "MARKET UPDATE: Hot Payrolls, Hotter Memecoins, And Se From FOMO Talks The Future Of Trading"
 channel: "1000x"
 url: https://www.youtube.com/watch?v=QVDm--18QBs

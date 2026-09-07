@@ -1,5 +1,6 @@
 ---
 type: YouTube Transcript
+format: short
 title: "Fed Chair Kevin Warsh"
 channel: "Kyla Scanlon"
 url: https://www.youtube.com/watch?v=TuyOoqCL0Gw

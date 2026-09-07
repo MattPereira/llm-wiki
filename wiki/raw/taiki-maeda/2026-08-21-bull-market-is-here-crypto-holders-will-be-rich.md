@@ -1,5 +1,6 @@
 ---
 type: YouTube Transcript
+format: video
 title: "Bull Market is Here. Crypto Holders will Be Rich."
 channel: "Taiki Maeda"
 url: https://www.youtube.com/watch?v=gj4WVO67NR8

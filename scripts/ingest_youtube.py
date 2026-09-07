@@ -48,6 +48,16 @@ def human_duration(seconds) -> str:
     return f"{s // 3600}:{s % 3600 // 60:02d}:{s % 60:02d}" if s >= 3600 else f"{s // 60}:{s % 60:02d}"
 
 
+def video_format(meta: dict) -> str:
+    """Either "short" or "video", from the frame shape -- shorts are vertical.
+
+    Not from duration: the 3-minute shorts ceiling overlaps ordinary short landscape
+    uploads, so a threshold would mislabel both ways. Not from the URL either, since
+    yt-dlp normalises /shorts/<id> to /watch?v=<id> before we ever see it.
+    """
+    return "short" if (meta.get("aspect_ratio") or 1) < 1 else "video"
+
+
 def fetch(url: str, workdir: Path) -> dict:
     """One yt-dlp pass: writes json3 subs into workdir, returns the metadata dict.
 
@@ -184,6 +194,7 @@ def render(meta: dict, sections: list, source: str) -> str:
     lines = [
         "---",
         "type: YouTube Transcript",
+        f"format: {video_format(meta)}",
         f'title: "{title.replace(chr(34), chr(39))}"',
         f'channel: "{channel.replace(chr(34), chr(39))}"',
         f"url: {url}",

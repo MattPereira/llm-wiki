@@ -23,6 +23,9 @@ saves no time has failed, because an unused wiki teaches nothing.
   The folder key inside `wiki/raw/` and `wiki/summaries/`. See ADR-0006.
 - **Medium** — YouTube transcript vs. Substack post. Carried in the `type`
   frontmatter field of the raw file. Determines what a summarizer *ignores*.
+- **Format** — within the YouTube medium, a short vs. a full video. Carried in the
+  `format` frontmatter field, derived from frame shape. Feeds *genre*, not medium.
+  See ADR-0007.
 - **Genre** — the shape of a piece: earnings review, single-asset thesis, macro
   essay, monthly recap, multi-topic podcast. Determines what a summarizer *emits*.
   Creator is a proxy for genre, not the same thing — Kyla writes both 3-minute

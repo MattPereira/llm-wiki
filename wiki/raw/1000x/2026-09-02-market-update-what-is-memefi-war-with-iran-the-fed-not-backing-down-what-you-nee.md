@@ -1,5 +1,6 @@
 ---
 type: YouTube Transcript
+format: video
 title: "MARKET UPDATE: What Is MemeFi, WAR With Iran, & The Fed Not Backing Down — What You Need To Know"
 channel: "1000x"
 url: https://www.youtube.com/watch?v=AmM2ghBGEig

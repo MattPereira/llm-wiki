@@ -1,6 +1,6 @@
-Example content that will be ingested and distilled by the agent operating the LLM wiki.
+Example content that will be ingested and summarized by the agent operating the LLM wiki.
 
-Headings are canonical creator slugs — the folder names under `raw/`, mapped from
+Headings are canonical creator slugs — the folder names under `wiki/raw/`, mapped from
 platform metadata by `creators.toml`. See ADR-0006.
 
 ## arthur-hayes

@@ -1,6 +1,6 @@
 ---
 name: ingest-youtube
-description: Ingest a YouTube video into the wiki and give its transcript real structure. Use when adding a YouTube URL to raw/, running scripts/ingest_youtube.py, or re-paragraphing and titling a transcript already ingested.
+description: Ingest a YouTube video into the wiki and give its transcript real structure. Use when adding a YouTube URL to wiki/raw/, running scripts/ingest_youtube.py, or re-paragraphing and titling a transcript already ingested.
 ---
 
 # Ingest a YouTube video
@@ -9,7 +9,7 @@ description: Ingest a YouTube video into the wiki and give its transcript real s
 
 Two rules govern every edit you make to that file:
 
-- **Verbatim** — the transcript's words are the artifact. You move whitespace and add `##` headings. Every other word survives exactly as the speaker said it, fillers and false starts included. Distillation happens downstream, against the verbatim record.
+- **Verbatim** — the transcript's words are the artifact. You move whitespace and add `##` headings. Every other word survives exactly as the speaker said it, fillers and false starts included. Summarization happens downstream, against the verbatim record.
 - **Beat** — one paragraph is one beat: a single claim and the evidence, example, or aside that serves it. The speaker moving to a new beat is the only reason a paragraph ends.
 - **Straddle** — a heading dropped into the middle of something continuous, because the creator marked the chapter by ear. It takes three forms: a split **sentence**, a split **turn** (one speaker's `>>` block cut in half), or a split **thought** (both sides whole sentences, but the opener finishes the topic above it). The script snaps each boundary to the nearest sentence end within 20 seconds, so the sentence form is usually handled; the other two always reach you.
 

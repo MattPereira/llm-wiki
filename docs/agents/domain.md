@@ -38,6 +38,13 @@ Multi-context repo (presence of `CONTEXT-MAP.md` at the root):
         └── docs/adr/
 ```
 
+## Superseded ADRs are deleted, not marked
+
+When a decision is reversed, rewrite the ADR in place, or delete it and fold anything
+still true into its replacement. Never leave a `superseded` ADR sitting in
+`docs/adr/` — every agent is told to read that directory before working, so a decision
+no longer in force is context spent on nothing. Git keeps the text.
+
 ## Use the glossary's vocabulary
 
 When your output names a domain concept (in an issue title, a refactor proposal, a hypothesis, a test name), use the term as defined in `CONTEXT.md`. Don't drift to synonyms the glossary explicitly avoids.

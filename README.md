@@ -1,7 +1,7 @@
 # LLM Wiki
 
 **Core Problem:** Too much content for human to ingest
-**Goal:** Figure out best strategies to summarize and distill information to save time
+**Goal:** Figure out best strategies to summarize information to save time
 
 ## Resources
 Information about various strategies for building an LLM powered knowledge base / wiki

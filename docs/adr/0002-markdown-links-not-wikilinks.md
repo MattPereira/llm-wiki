@@ -14,7 +14,7 @@ both link styles. They compose.
 
 ## Decision
 
-Standard Markdown links in `wiki/`.
+Standard Markdown links in `wiki/summaries/`.
 
 ## Consequences
 

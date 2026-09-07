@@ -1,11 +1,11 @@
-# ADR-0003: Distillation is medium-specific extract plus genre-specific emit
+# ADR-0003: Summarization is medium-specific extract plus genre-specific emit
 
 **Status:** accepted · 2026-09-06
 
 ## Context
 
-Sources vary enormously, and the first instinct was one distillation skill per
-creator. Reading `raw/` showed the variation does not fall on the creator axis.
+Sources vary enormously, and the first instinct was one summarization skill per
+creator. Reading `wiki/raw/` showed the variation does not fall on the creator axis.
 
 Two YouTube files, opposite noise profiles: the 1000x podcast is 16,164 words of
 two-person dialogue that opens on `>> Hello. >> How are you doing, Jonah?` and a
@@ -27,12 +27,12 @@ One agent pass per source producing one file, with two composed rule sets:
 
 1. **Extract**, keyed on the `type` frontmatter field (`YouTube Transcript` /
    `Substack Post`) — what to ignore.
-2. **Distill**, keyed on `(creator, type)` as a proxy for genre — what to emit. One
+2. **Summarize**, keyed on `(creator, type)` as a proxy for genre — what to emit. One
    base shape; overrides only where the genre demands different fields, falling back
    to creator alone. The `type` half matters because ADR-0006 puts a creator's
    3-minute shorts and 7,000-word essays in one folder.
 
-Both start as prompt sections, not files on disk.
+Both start as prompt sections in one `summarize-source` skill, not files on disk.
 
 ## Consequences
 
@@ -40,13 +40,23 @@ One skill per creator would make each new creator independently re-solve "ignore
 pleasantries", and improving that logic would mean fixing it in seven places. Split
 this way, ignore-rules are written twice, ever.
 
+Rejected making summarization a step inside the ingest skills. It welds the prompt to
+a fetch that has already happened, so the bulk re-runs ADR-0004 depends on become
+impossible; it forces an `ingest-substack` skill into existence purely as a container,
+when a Substack post needs no agent step after the fetch; and it keys extract on which
+script ran rather than on `type`, which is the copy-paste this ADR exists to prevent.
+
 The extract stage must preserve speaker attribution for dialogue sources. Only 1000x
 is a dialogue today, and "Avi said X, Jonah pushed back" is real signal that would
 otherwise vanish silently.
 
-Filler-stripping cannot move into `raw/`: the `ingest-youtube` skill enforces
-verbatim and states that distillation happens downstream against that record.
+Filler-stripping cannot move into `wiki/raw/`: the `ingest-youtube` skill enforces
+verbatim and states that summarization happens downstream against that record.
 
-No cleaned-transcript intermediate artifact. It would make re-running the distiller
+No cleaned-transcript intermediate artifact. It would make re-running the summarizer
 on the 16k-word podcast cheaper, but it is a third copy of the corpus for a problem
 not yet observed, and it is purely additive if ever wanted.
+
+One source is always one file. Splitting a multi-topic podcast into per-topic children
+breaks the mirror ADR-0001 buys; topics get headings inside the one summary, and
+cross-source topic extraction is phase 4's job.

@@ -3,7 +3,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["beautifulsoup4==4.15.0"]
 # ///
-"""Fetch a Substack post and write it as Markdown into raw/<creator>/.
+"""Fetch a Substack post and write it as Markdown into wiki/raw/<creator>/.
 
 Usage:  uv run scripts/ingest_substack.py <url> [--force]
 Prints the written path on stdout. Everything else goes to stderr.

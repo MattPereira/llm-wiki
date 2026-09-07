@@ -3,7 +3,7 @@
 # requires-python = ">=3.11"
 # dependencies = []
 # ///
-"""Fetch a YouTube transcript and write it as Markdown into raw/<creator>/.
+"""Fetch a YouTube transcript and write it as Markdown into wiki/raw/<creator>/.
 
 Usage:  uv run scripts/ingest_youtube.py <url> [--force]
 Prints the written path on stdout. Everything else goes to stderr.

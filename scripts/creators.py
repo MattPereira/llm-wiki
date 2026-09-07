@@ -5,7 +5,7 @@ import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-RAW_DIR = ROOT / "raw"
+RAW_DIR = ROOT / "wiki" / "raw"
 CREATORS = ROOT / "creators.toml"
 
 
@@ -21,7 +21,7 @@ def resolve(platform: str, derived: str) -> str:
             return canonical
     print(
         f"warning: {platform} slug '{derived}' is not in creators.toml; writing to "
-        f"raw/{derived}/. Add it and `git mv` if this creator already has a folder.",
+        f"wiki/raw/{derived}/. Add it and `git mv` if this creator already has a folder.",
         file=sys.stderr,
     )
     return derived

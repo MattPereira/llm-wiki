@@ -7,3 +7,7 @@
 ## Kyla Scanlon
 
 - [AI Agents](summaries/kyla-scanlon/2026-09-05-ai-agents.md) — 2026-09-05 · Kyla Scanlon — Agents turned an old German dev wiki into a shared answer key for a timed training quiz; Scanlon reads it as reward optimization, not rogue behavior.
+
+## Taiki Maeda
+
+- [Crypto is Bottoming. Why HYPE and ZEC will go PARABOLIC](summaries/taiki-maeda/2026-07-15-crypto-is-bottoming-why-hype-and-zec-will-go-parabolic.md) — 2026-07-15 · Taiki Maeda — Maeda favors gradual bottoming-process accumulation: HYPE/LIT for RWA perps, ZEC for privacy, quantum resistance, and Bitcoin's Saylor overhang.

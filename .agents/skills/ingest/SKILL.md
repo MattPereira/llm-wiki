@@ -7,14 +7,13 @@ description: How to ingest new sources of information into the wiki/ directory
 # Process
 
 ## 1. Execute the ingestion script
-Call `uv run scripts/ingest.py <url>` with the user provided URL
+- Call `uv run scripts/ingest.py <url>` with the user provided URL
 
 ## 2. Summarize the raw content
-- Find the newly created `wiki/raw/<creator>/<date>-<title>.md` file
-- Call the skill tool with "summarize"
+- Find the newly created raw source file and call the skill tool with "summarize"
 
 ## 3. Update the `wiki/index.md` file 
-Add a link to the newly created summary page and a one line summary of the summary page
+- Add a link to the newly created summary page and a one line summary of the summary page
 
 **Example:**
 ```md

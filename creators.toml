@@ -1,5 +1,5 @@
 # Maps the folder slug each ingest script derives from platform metadata to the
-# canonical creator folder under raw/ and wiki/. See ADR-0006.
+# canonical creator folder under raw/ and wiki/.
 #
 # The keys on the right are what the scripts already produce: slugify(channel) for
 # YouTube, the publication subdomain for Substack. An unmapped key auto-creates a

@@ -1,4 +1,4 @@
-"""Creator folder resolution shared by the ingest scripts. See ADR-0006."""
+"""Creator folder resolution shared by the ingest scripts."""
 
 import sys
 import tomllib
@@ -13,7 +13,7 @@ def resolve(platform: str, derived: str) -> str:
     """Canonical creator folder for a platform-derived slug.
 
     Falls back to the derived slug and warns: adding a creator is the most frequent
-    operation, so an unmapped one must not block an ingest. See ADR-0006.
+    operation, so an unmapped one must not block an ingest.
     """
     table = tomllib.loads(CREATORS.read_text(encoding="utf-8"))
     for canonical, entry in table.items():

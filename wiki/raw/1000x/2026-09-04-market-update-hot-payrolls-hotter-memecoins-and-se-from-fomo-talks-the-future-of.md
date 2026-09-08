@@ -7,7 +7,6 @@ url: https://www.youtube.com/watch?v=QVDm--18QBs
 video_id: QVDm--18QBs
 upload_date: 2026-09-04
 duration: 3967
-transcript_source: auto
 chapters: 9
 fetched_at: 2026-09-07T20:41:59Z
 word_count: 14620

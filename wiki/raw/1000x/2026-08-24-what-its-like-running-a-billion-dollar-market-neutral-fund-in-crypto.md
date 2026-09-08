@@ -7,7 +7,6 @@ url: https://www.youtube.com/watch?v=xAVzE-OdIeo
 video_id: xAVzE-OdIeo
 upload_date: 2026-08-24
 duration: 2097
-transcript_source: auto
 chapters: 8
 fetched_at: 2026-09-07T21:14:46Z
 word_count: 7707

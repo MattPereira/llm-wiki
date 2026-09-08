@@ -7,7 +7,6 @@ url: https://www.youtube.com/watch?v=AmM2ghBGEig
 video_id: AmM2ghBGEig
 upload_date: 2026-09-02
 duration: 5024
-transcript_source: auto
 chapters: 9
 fetched_at: 2026-09-03T20:43:21Z
 word_count: 16164

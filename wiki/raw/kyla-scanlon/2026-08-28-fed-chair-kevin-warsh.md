@@ -7,7 +7,6 @@ url: https://www.youtube.com/watch?v=TuyOoqCL0Gw
 video_id: TuyOoqCL0Gw
 upload_date: 2026-08-28
 duration: 177
-transcript_source: auto
 fetched_at: 2026-09-03T19:52:09Z
 word_count: 647
 ---

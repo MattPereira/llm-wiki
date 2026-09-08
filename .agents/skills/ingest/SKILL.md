@@ -6,16 +6,14 @@ description: How to ingest new sources of information into the wiki/ directory
 
 # Process
 
-## 1. Execute the appropriate ingestion script
-Examine the user provided URL to discern the type of content
+## 1. Execute the ingestion script
+Call `uv run scripts/ingest.py <url>` with the user provided URL
 
-- Call the `scripts/ingest_youtube.py` script if the URL contains `youtube.com`
-- Call the `scripts/ingest_substack.py` script if the URL contains `youtube.com`
-
-## 2. Call the skill tool with "summarize"
+## 2. Summarize the raw content
+- Find the newly created `wiki/raw/<creator>/<date>-<title>.md` file
+- Call the skill tool with "summarize"
 
 ## 3. Update the `wiki/index.md` file 
-
 Add a link to the newly created summary page and a one line summary of the summary page
 
 **Example:**

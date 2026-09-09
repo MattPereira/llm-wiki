@@ -33,11 +33,10 @@ schema rejects a summary missing either.
 
 ### blurb
 
-One concise sentence to help an AI agent decide whether to examine the summary.
-Say what the source delivers, not what it covers — the specific payload, whatever
-form it takes: the numbers, the events, the mechanism, the position someone took.
-"Maeda favors gradual accumulation into the bottom." beats "A video about crypto
-markets." Name the people and tickers that carry it, and end with a period.
+One sentence, 25 words or fewer, ending in a period. It lets a reader — human or
+agent — decide whether to open the summary without opening it. Say what the source
+delivers, not what it covers: "Maeda favors gradual accumulation into the bottom."
+beats "A video about crypto markets."
 
 ### topics
 

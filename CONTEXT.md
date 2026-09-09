@@ -54,6 +54,6 @@ agent navigation via the Index. One per Summary.
 
 ## Topic
 
-A term from a controlled vocabulary, attached to a Summary, used to browse across
-Creators. Distinct from a free-form tag: an agent may only apply an existing Topic,
-and must ask before a new one is added to the vocabulary.
+A term from the controlled vocabulary defined in `topics.toml`, attached to a Summary,
+used to browse across Creators. Distinct from a free-form tag: an agent may only apply
+an existing Topic, and must ask before a new one is added to the vocabulary.

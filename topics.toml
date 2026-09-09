@@ -1,0 +1,37 @@
+# The controlled Topic vocabulary. A Summary's `topics` frontmatter array may only
+# contain slugs defined here; the Site builds a page per Topic from them.
+#
+# Table key = the Topic slug (also the Site's URL segment). `name` is what readers see.
+#
+# This list is deliberately small and grows slowly. A vocabulary that gains a Topic
+# per Summary is worse than no vocabulary, because nothing ever collects under a
+# Topic and browsing across Creators stops working. Add a Topic only when a Summary
+# genuinely does not fit any existing one -- and ask the user first.
+#
+# Each entry carries a comment saying where its boundary sits and how it differs from
+# its nearest neighbour. That comment is the thing that keeps two agents tagging the
+# same way six months apart, so write it before you write the entry.
+
+[macro]
+name = "Macro"
+# Rates, central banks, inflation and employment prints, currencies, sovereign debt.
+# The forces acting on every asset at once. A Summary about what the Fed will do is
+# macro; a Summary about what to buy because of it is also crypto-markets.
+
+[crypto-markets]
+name = "Crypto Markets"
+# Cycle calls, token theses, sector rotations, positioning in specific crypto assets.
+# The "what to own and why" of crypto. Differs from trading-culture, which is about
+# how people trade rather than what the trade is.
+
+[trading-culture]
+name = "Trading Culture"
+# Retail behaviour and the venues that shape it: attention as a tradable input,
+# memecoins, social and copy trading, brokerage products, who is losing money and how.
+# About participants and plumbing, not about any particular asset's fundamentals.
+
+[ai]
+name = "AI"
+# Models, agents, training dynamics, and the AI industry's economics. Covers both AI
+# as a technology story and AI as a market story; the two are hard to separate and
+# splitting them would leave both halves too thin to browse.

@@ -3,10 +3,10 @@ type: summary
 source: ../../raw/1000x/2026-09-04-market-update-hot-payrolls-hotter-memecoins-and-se-from-fomo-talks-the-future-of.md
 title: "MARKET UPDATE: Hot Payrolls, Hotter Memecoins, And Se From FOMO Talks The Future Of Trading"
 creator: "1000x"
-host: Avi
-guests: ["Se (co-founder, FOMO)"]
 url: https://www.youtube.com/watch?v=QVDm--18QBs
 upload_date: 2026-09-04
+blurb: "Hot payrolls revive Fed hike odds as memecoins rip; FOMO's Se argues the whole market is attention, on a platform where 94.4% lose money."
+topics: ["macro", "crypto-markets", "trading-culture"]
 ---
 
 # MARKET UPDATE: Hot Payrolls, Hotter Memecoins, And Se From FOMO Talks The Future Of Trading

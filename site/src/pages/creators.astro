@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import BrowseList from "../components/BrowseList.astro";
+import Base from "../layouts/Base.astro";
+import { creatorName } from "../lib/creators";
+import { formatDate, summaryCount } from "../lib/format";
+import { byCreator } from "../lib/summaries";
+
+// Driven by the Summaries on disk, not by creators.toml — deliberately unlike
+// /topics, which lists its whole vocabulary. creators.toml also carries Creators
+// that are only configured for ingest, and a reader clicking one would land on a
+// page with nothing on it and no way to tell whether that is a bug.
+const grouped = byCreator(await getCollection("summaries"));
+
+const items = [...grouped]
+  .map(([slug, summaries]) => ({
+    href: `/${slug}/`,
+    name: creatorName(slug),
+    note: `${summaryCount(summaries.length)} · latest ${formatDate(summaries[0]!.data.upload_date)}`,
+  }))
+  .sort((a, b) => a.name.localeCompare(b.name));
+---
+
+<Base title="Creators — Market Wiki" description="Everyone the wiki covers.">
+  <header class="mb-12">
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+    >
+      Creators
+    </h1>
+    <p class="mt-2 text-stone-600 dark:text-stone-400">
+      Everyone the wiki holds a summary for.
+    </p>
+  </header>
+
+  <BrowseList items={items} />
+</Base>

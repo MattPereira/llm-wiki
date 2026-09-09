@@ -1,0 +1,42 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import SummaryList from "../../components/SummaryList.astro";
+import Base from "../../layouts/Base.astro";
+import { assertRoutableCreators, creatorName } from "../../lib/creators";
+import { summaryCount } from "../../lib/format";
+import { byCreator } from "../../lib/summaries";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  assertRoutableCreators();
+
+  return [...byCreator(await getCollection("summaries"))].map(
+    ([creator, summaries]) => ({ params: { creator }, props: { summaries } }),
+  );
+};
+
+interface Props {
+  summaries: CollectionEntry<"summaries">[];
+}
+
+const { summaries } = Astro.props;
+const name = creatorName(Astro.params.creator!);
+---
+
+<Base
+  title={`${name} — Market Wiki`}
+  description={`Every summary of ${name} in the wiki.`}
+>
+  <header class="mb-12">
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+    >
+      {name}
+    </h1>
+    <p class="mt-2 text-stone-600 dark:text-stone-400">
+      {summaryCount(summaries.length)}, newest first.
+    </p>
+  </header>
+
+  <SummaryList summaries={summaries} showCreator={false} />
+</Base>

@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+import BrowseList from "../../components/BrowseList.astro";
+import Base from "../../layouts/Base.astro";
+import { summaryCount } from "../../lib/format";
+import { byTopic } from "../../lib/summaries";
+import { topicName, topicSlugs } from "../../lib/topics";
+
+// Driven by topics.toml, not by what Summaries happen to carry: a reader should
+// see the whole vocabulary before searching for something the wiki has nothing on.
+const grouped = byTopic(await getCollection("summaries"));
+
+const items = topicSlugs().map((slug) => {
+  const count = grouped.get(slug)?.length ?? 0;
+  return {
+    href: `/topics/${slug}/`,
+    name: topicName(slug),
+    note: count === 0 ? "Nothing yet" : summaryCount(count),
+  };
+});
+---
+
+<Base
+  title="Topics — Market Wiki"
+  description="The whole topic vocabulary the wiki uses."
+>
+  <header class="mb-12">
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+    >
+      Topics
+    </h1>
+    <p class="mt-2 text-stone-600 dark:text-stone-400">
+      The whole vocabulary, so you can see what the wiki covers before you go
+      looking.
+    </p>
+  </header>
+
+  <BrowseList items={items} />
+</Base>

@@ -1,0 +1,42 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { creatorName } from "../lib/creators";
+import { formatDate, permalink } from "../lib/format";
+import { creatorSlug } from "../lib/summaries";
+
+interface Props {
+  summaries: CollectionEntry<"summaries">[];
+  /** Off on a Creator page, where repeating the name on every row is noise. */
+  showCreator?: boolean;
+}
+
+const { summaries, showCreator = true } = Astro.props;
+---
+
+<ul class="divide-y divide-stone-200 dark:divide-stone-800">
+  {
+    summaries.map((summary) => (
+      <li class="py-6 first:pt-0">
+        <a class="group block" href={permalink(summary.id)}>
+          <h2 class="font-serif text-2xl leading-snug font-semibold text-stone-900 group-hover:underline group-hover:decoration-stone-400 group-hover:underline-offset-4 dark:text-stone-100">
+            {summary.data.title}
+          </h2>
+          <p class="mt-1.5 text-base text-stone-500 dark:text-stone-500">
+            {showCreator && (
+              <>
+                {creatorName(creatorSlug(summary.id))}
+                <span aria-hidden="true"> · </span>
+              </>
+            )}
+            <time datetime={summary.data.upload_date.toISOString()}>
+              {formatDate(summary.data.upload_date)}
+            </time>
+          </p>
+          <p class="mt-2.5 leading-relaxed text-stone-700 dark:text-stone-400">
+            {summary.data.blurb}
+          </p>
+        </a>
+      </li>
+    ))
+  }
+</ul>

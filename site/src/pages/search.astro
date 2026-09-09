@@ -1,0 +1,46 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+{
+  /*
+   * Pagefind builds its index and ships its own UI as a postbuild step over
+   * dist/, so these assets do not exist under `astro dev` and search only works
+   * against a real build (`npm run build && npm run preview`). They are loaded
+   * inline and only here, which is what keeps the rest of the site zero-JS.
+   */
+}
+<Base
+  title="Search — Market Wiki"
+  description="Full-text search across every summary in the wiki."
+>
+  <link slot="head" rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+
+  <header class="mb-8">
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+    >
+      Search
+    </h1>
+    <p class="mt-2 text-stone-600 dark:text-stone-400">
+      Full text across every summary. Raw transcripts are never published, so
+      they are not searchable.
+    </p>
+  </header>
+
+  <div id="search"></div>
+
+  <script is:inline src="/pagefind/pagefind-ui.js"></script>
+  <script is:inline>
+    if (typeof PagefindUI === "undefined") {
+      document.getElementById("search").textContent =
+        "No search index here. Pagefind builds one during `npm run build`; try `npm run preview`.";
+    } else {
+      new PagefindUI({
+        element: "#search",
+        showImages: false,
+        showSubResults: true,
+      });
+    }
+  </script>
+</Base>

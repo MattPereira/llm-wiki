@@ -14,3 +14,6 @@ export const sourceLabel = (url: string): string =>
   url.includes("youtube.com") || url.includes("youtu.be")
     ? "Watch the original"
     : "Read the original";
+
+export const summaryCount = (count: number): string =>
+  `${count} ${count === 1 ? "summary" : "summaries"}`;

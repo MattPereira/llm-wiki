@@ -1,0 +1,29 @@
+---
+/** The /creators and /topics index shape: a name to click and a line about it. */
+export interface BrowseItem {
+  href: string;
+  name: string;
+  note: string;
+}
+
+interface Props {
+  items: BrowseItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="divide-y divide-stone-200 dark:divide-stone-800">
+  {
+    items.map((item) => (
+      <li class="py-5 first:pt-0">
+        <a class="group block" href={item.href}>
+          <h2 class="font-serif text-2xl font-semibold text-stone-900 group-hover:underline group-hover:decoration-stone-400 group-hover:underline-offset-4 dark:text-stone-100">
+            {item.name}
+          </h2>
+          <p class="mt-1 text-base text-stone-500">{item.note}</p>
+        </a>
+      </li>
+    ))
+  }
+</ul>

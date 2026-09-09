@@ -1,0 +1,50 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import SummaryList from "../../components/SummaryList.astro";
+import Base from "../../layouts/Base.astro";
+import { summaryCount } from "../../lib/format";
+import { byTopic } from "../../lib/summaries";
+import { topicName, topicSlugs } from "../../lib/topics";
+
+// A page per Topic in topics.toml, including the ones nothing carries yet — a
+// linked Topic that 404s would be worse than one that says it is empty.
+export const getStaticPaths: GetStaticPaths = async () => {
+  const grouped = byTopic(await getCollection("summaries"));
+
+  return topicSlugs().map((topic) => ({
+    params: { topic },
+    props: { summaries: grouped.get(topic) ?? [] },
+  }));
+};
+
+interface Props {
+  summaries: CollectionEntry<"summaries">[];
+}
+
+const { summaries } = Astro.props;
+const name = topicName(Astro.params.topic!);
+---
+
+<Base
+  title={`${name} — Market Wiki`}
+  description={`Every summary tagged ${name}, across creators.`}
+>
+  <header class="mb-12">
+    <p class="text-base text-stone-500">Topic</p>
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+    >
+      {name}
+    </h1>
+    <p class="mt-2 text-stone-600 dark:text-stone-400">
+      {
+        summaries.length === 0
+          ? "No summaries carry this topic yet."
+          : `${summaryCount(summaries.length)} across creators, newest first.`
+      }
+    </p>
+  </header>
+
+  <SummaryList summaries={summaries} />
+</Base>

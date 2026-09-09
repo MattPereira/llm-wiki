@@ -64,7 +64,7 @@ For whatever reason, both Yellen and Bessent were and are terrified of a 10-year
 
 **Bills vs. Bonds**
 
-A treasury bill has a maturity of less than one year, whereas a bond’s is longer.[[1]](#_ftn1) The closer the maturity is to zero, which is cash, the more liquid and desirable it is to hold for many investors, specifically money market funds (MMF). MMFs want to take as little interest rate and counterparty risk as possible for the highest yield. The safest place to hold cash is with the Fed because the Fed can print money at will with no congressional approval to settle its liabilities. The Fed operates a Reverse Repo Program (RRP) where eligible counterparties can park money and earn a yield close to the effective fed funds rate set by the central bank.
+A treasury bill has a maturity of less than one year, whereas a bond’s is longer.[1](#_ftn1) The closer the maturity is to zero, which is cash, the more liquid and desirable it is to hold for many investors, specifically money market funds (MMF). MMFs want to take as little interest rate and counterparty risk as possible for the highest yield. The safest place to hold cash is with the Fed because the Fed can print money at will with no congressional approval to settle its liabilities. The Fed operates a Reverse Repo Program (RRP) where eligible counterparties can park money and earn a yield close to the effective fed funds rate set by the central bank.
 
 While in theory lending to the US government is risk free in dollar terms because the government can print money, operationally settling its debts requires congressional approval. This is why the debt-ceiling melodrama matters to market participants who cannot hold securities where there is any doubt of full repayment at maturity. If the politicians decide not to approve spending bills, bondholders will not get paid. Therefore, if an MMF is to hold a T-bill, it must yield slightly more than the RRP to compensate for the risk.
 
@@ -98,7 +98,7 @@ First, Bessent didn’t go big enough. With a total debt stock of $40 trillion, 
 
 There are a few ways this can go.
 
-The worst case for dollar liquidity sensitive assets like Bitcoin is that US politicians, led by President Trump, decide to spend less money. I don’t think this is likely, as there are elections to win in a few months. The Democratic Socialists of America politicians, led in spirit by AOC, are kicking ass and taking names.[[2]](#_ftn2) They promise a socialist utopia where no one pays rent and groceries are free. Trump and the Team Red Republicans must respond with their prosperity gospel, which is printed money for rich assets holders who donate money to the party and dreams of a capitalist utopia where if you believe in socialism for the rich and capitalism for the poor you will get rich and live the gilded lifestyle your favorite MAGA influencer peddles. You know the type; the guys look like Miami Vice dressed in head-to-toe Philipp Plein, and the chicks who got their duck lips from the most expensive butcher in Coconut Grove.
+The worst case for dollar liquidity sensitive assets like Bitcoin is that US politicians, led by President Trump, decide to spend less money. I don’t think this is likely, as there are elections to win in a few months. The Democratic Socialists of America politicians, led in spirit by AOC, are kicking ass and taking names.[2](#_ftn2) They promise a socialist utopia where no one pays rent and groceries are free. Trump and the Team Red Republicans must respond with their prosperity gospel, which is printed money for rich assets holders who donate money to the party and dreams of a capitalist utopia where if you believe in socialism for the rich and capitalism for the poor you will get rich and live the gilded lifestyle your favorite MAGA influencer peddles. You know the type; the guys look like Miami Vice dressed in head-to-toe Philipp Plein, and the chicks who got their duck lips from the most expensive butcher in Coconut Grove.
 
 With that doom porn out of the way, let’s get back to reality on how Bessent can get serious about printing money.
 
@@ -128,6 +128,6 @@ Subscribe to see the latest Events:**[Calendar](https://lu.ma/mevents)**
 
 ---
 
-[[1]](#_ftnref1)Technically speaking a treasury bill has a maturity of less than one year, a note of one to twenty years, and a bond of twenty to thirty yields.
+[1](#_ftnref1)Technically speaking a treasury bill has a maturity of less than one year, a note of one to twenty years, and a bond of twenty to thirty yields.
 
-[[2]](#_ftnref2)AOC -Alexandria Ocasio-Cortez; she is the front runner to be the Team Blue Democrat nominee for president in the 2028 election.
+[2](#_ftnref2)AOC -Alexandria Ocasio-Cortez; she is the front runner to be the Team Blue Democrat nominee for president in the 2028 election.

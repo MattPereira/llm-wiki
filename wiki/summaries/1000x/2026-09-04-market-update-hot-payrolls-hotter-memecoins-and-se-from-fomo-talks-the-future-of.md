@@ -3,8 +3,6 @@ type: summary
 source: ../../raw/1000x/2026-09-04-market-update-hot-payrolls-hotter-memecoins-and-se-from-fomo-talks-the-future-of.md
 title: "MARKET UPDATE: Hot Payrolls, Hotter Memecoins, And Se From FOMO Talks The Future Of Trading"
 creator: "1000x"
-host: Avi
-guests: ["Se (co-founder, FOMO)"]
 url: https://www.youtube.com/watch?v=QVDm--18QBs
 upload_date: 2026-09-04
 blurb: "Avi and FOMO's Se argue attention is the tradable primitive across crypto and equities, so buy the leaders capturing it; 94.4% of FOMO users still lose money."

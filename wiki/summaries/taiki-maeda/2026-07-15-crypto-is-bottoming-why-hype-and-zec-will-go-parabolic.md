@@ -3,7 +3,6 @@ type: summary
 source: ../../raw/taiki-maeda/2026-07-15-crypto-is-bottoming-why-hype-and-zec-will-go-parabolic.md
 title: "Crypto is Bottoming. Why HYPE and ZEC will go PARABOLIC"
 creator: "Taiki Maeda"
-host: Taiki Maeda
 url: https://www.youtube.com/watch?v=_wTmGFHhUUY
 upload_date: 2026-07-15
 blurb: "Maeda favors gradual bottoming-process accumulation: HYPE/LIT for RWA perps, ZEC for privacy, quantum resistance, and Bitcoin's Saylor overhang."

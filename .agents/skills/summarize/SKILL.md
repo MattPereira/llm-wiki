@@ -21,11 +21,9 @@ agent: codex
 source: ../../raw/<creator>/<date>-<title>.md
 title: "Source title"
 creator: "Creator name"
-host: "Host name"
-guests: ["Guest name"]
 url: https://example.com/source
 upload_date: YYYY-MM-DD
-blurb: "One sentence saying what this source argues."
+blurb: "One sentence saying what this source delivers."
 topics: ["macro", "crypto-markets"]
 ---
 ```
@@ -36,9 +34,10 @@ schema rejects a summary missing either.
 ### blurb
 
 One sentence ending in a period, written for someone deciding whether to open the
-summary. Say what the source argues, not what it is about:
-"Maeda favors gradual accumulation into the bottom." beats "A video about crypto
-markets." Name the people and tickers that carry the argument.
+summary. Say what the source delivers, not what it covers — the argument it makes,
+the call it takes, the thing it explains, the event it recaps, the admission a guest
+let slip. "Maeda favors gradual accumulation into the bottom." beats "A video about
+crypto markets." Name the people and tickers that carry it.
 
 ### topics
 

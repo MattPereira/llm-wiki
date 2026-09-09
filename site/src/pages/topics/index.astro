@@ -24,17 +24,11 @@ const items = topicSlugs().map((slug) => {
   title="Topics — Market Wiki"
   description="The whole topic vocabulary the wiki uses."
 >
-  <header class="mb-12">
-    <h1
-      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
-    >
-      Topics
-    </h1>
-    <p class="mt-2 text-stone-600 dark:text-stone-400">
-      The whole vocabulary, so you can see what the wiki covers before you go
-      looking.
-    </p>
-  </header>
+  <h1 class="sr-only">Topics</h1>
+  <p class="mb-10 text-stone-600 dark:text-stone-400">
+    The whole vocabulary, so you can see what the wiki covers before you go
+    looking.
+  </p>
 
   <BrowseList items={items} />
 </Base>

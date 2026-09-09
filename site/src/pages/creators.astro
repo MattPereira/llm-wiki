@@ -22,16 +22,10 @@ const items = [...grouped]
 ---
 
 <Base title="Creators — Market Wiki" description="Everyone the wiki covers.">
-  <header class="mb-12">
-    <h1
-      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
-    >
-      Creators
-    </h1>
-    <p class="mt-2 text-stone-600 dark:text-stone-400">
-      Everyone the wiki holds a summary for.
-    </p>
-  </header>
+  <h1 class="sr-only">Creators</h1>
+  <p class="mb-10 text-stone-600 dark:text-stone-400">
+    Everyone the wiki holds a summary for.
+  </p>
 
   <BrowseList items={items} />
 </Base>

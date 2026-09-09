@@ -9,6 +9,7 @@ npm run dev     # reads the working tree, so an uncommitted Summary previews
 npm run build   # fails by name and field on a Summary missing frontmatter
 npm test        # the pure lib/ seams: vocabulary parsing, grouping, formatting
 npm run check   # typecheck
+npm run generate-index  # rewrites wiki/index.md from Summary frontmatter
 ```
 
 ## How a Summary becomes a page
@@ -20,6 +21,12 @@ finds out it forgot one, so don't soften the schema to make a build pass.
 Summaries repeat their title and byline in the body so they read standalone in
 Obsidian; `src/lib/strip-authored-header.ts` drops those two nodes so the Site can
 render its header from validated frontmatter instead.
+
+`wiki/index.md` is the agent-facing counterpart to those pages, and is generated
+rather than written: `scripts/generate-index.ts` parses the same frontmatter
+against the same schema and `src/lib/index-markdown.ts` renders it. The generator
+lives here rather than beside the Python ingest scripts so there is one definition
+of a valid Summary, not one per language.
 
 Raw is never globbed, routed, or linked. It stays out of the published site — the
 one thing read from it is `duration`, which belongs to the Source rather than the

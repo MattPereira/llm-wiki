@@ -34,6 +34,7 @@ The human-facing artifact. A Raw may have no Summary yet; a Summary always has a
 
 `wiki/index.md` — the navigational listing of every Summary, grouped by Creator.
 Exists so an agent entering a fresh session can see the whole wiki in one read.
+Generated from Summary frontmatter, never hand-written.
 
 ## Log
 

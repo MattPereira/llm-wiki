@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "check": "astro check",
     "test": "vitest run",
-    "postbuild": "pagefind --site dist"
+    "postbuild": "pagefind --site dist",
+    "generate-index": "tsx scripts/generate-index.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",
@@ -22,9 +23,12 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@types/js-yaml": "^4.0.9",
     "@types/mdast": "^4.0.4",
     "@types/node": "^22.20.2",
+    "js-yaml": "^4.3.2",
     "pagefind": "^1.5.2",
+    "tsx": "^4.23.13",
     "typescript": "^6.0.3",
     "vitest": "^5.0.0"
   }

@@ -12,15 +12,7 @@ description: How to ingest new sources of information into the wiki/ directory
 ## 2. Summarize the raw content
 - Find the newly created raw source file and call the skill tool with "summarize"
 
-## 3. Update the `wiki/index.md` file 
-- Add a link to the newly created summary page and a one line summary of the summary page
-
-**Example:**
-```md
-- [Atención](summaries/arthur-hayes/2026-09-02-atencion.md) — 2026-09-02 · Arthur Hayes — Hayes argues falling EUR/JPY will precede major dollar-liquidity expansion.
-```
-
-## 4. Append an entry to `wiki/log.md` 
+## 3. Append an entry to `wiki/log.md` 
 
 **Example:**
 ```md

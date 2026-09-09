@@ -47,3 +47,13 @@ none that only nearly fit — one or two is normal, four means you are stretchin
 whether to add one, proposing a slug, display name, and the boundary comment that
 would go with it. Only edit `topics.toml` after they say yes. A vocabulary that
 grows a Topic per summary is worse than no vocabulary.
+
+## 3. Regenerate `wiki/index.md`
+
+```sh
+cd site && npm run generate-index
+```
+
+The Index is generated from Summary frontmatter — never hand-edit it. The command
+fails naming the file and field if a Summary's frontmatter is invalid; fix the
+frontmatter and rerun rather than editing the Index.

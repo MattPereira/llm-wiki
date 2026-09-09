@@ -35,10 +35,10 @@ schema rejects a summary missing either.
 
 ### blurb
 
-One sentence, no trailing period needed, written for someone deciding whether to
-open the summary. Say what the source argues, not what it is about: "Maeda favors
-gradual accumulation into the bottom" beats "a video about crypto markets". Name
-the people and tickers that carry the argument.
+One sentence ending in a period, written for someone deciding whether to open the
+summary. Say what the source argues, not what it is about:
+"Maeda favors gradual accumulation into the bottom." beats "A video about crypto
+markets." Name the people and tickers that carry the argument.
 
 ### topics
 

@@ -4,12 +4,19 @@ interface Props {
   description?: string;
 }
 
+import { activeNav } from "../lib/nav";
 import "../styles/global.css";
 
 const { title, description } = Astro.props;
 
-const linkClass =
-  "text-stone-500 hover:text-stone-900 dark:text-stone-500 dark:hover:text-stone-100";
+const active = activeNav(Astro.url.pathname);
+
+const links = [
+  { href: "/", label: "Summaries" },
+  { href: "/creators/", label: "Creators" },
+  { href: "/topics/", label: "Topics" },
+  { href: "/search/", label: "Search" },
+];
 ---
 
 <!doctype html>
@@ -27,13 +34,25 @@ const linkClass =
   >
     <div class="mx-auto max-w-4xl px-5 py-10 sm:px-6 sm:py-16">
       <nav
-        class="mb-10 flex gap-5 border-b border-stone-200 pb-4 text-base dark:border-stone-800"
+        class="mb-10 flex gap-5 border-b border-stone-200 text-base dark:border-stone-800"
         data-pagefind-ignore
       >
-        <a class={linkClass} href="/">Summaries</a>
-        <a class={linkClass} href="/creators/">Creators</a>
-        <a class={linkClass} href="/topics/">Topics</a>
-        <a class={linkClass} href="/search/">Search</a>
+        {
+          links.map(({ href, label }) => (
+            <a
+              class:list={[
+                "-mb-px border-b-2 pb-4",
+                href === active
+                  ? "border-stone-800 font-medium text-stone-900 dark:border-stone-300 dark:text-stone-100"
+                  : "border-transparent text-stone-500 hover:text-stone-900 dark:text-stone-500 dark:hover:text-stone-100",
+              ]}
+              href={href}
+              aria-current={href === active ? "page" : undefined}
+            >
+              {label}
+            </a>
+          ))
+        }
       </nav>
       <slot />
     </div>

@@ -111,11 +111,16 @@ def inline(node) -> str:
             out.append(f"*{text}*" if text.strip() else text)
         elif child.name == "a":
             classes = " ".join(child.get("class") or [])
-            if "footnote-anchor" in classes:
-                out.append(f"[{text}]")  # literal marker; the note itself lands under ## Footnotes
+            href = child.get("href", "")
+            # Substack's own footnotes carry a class, Word-pasted ones only a #_ftn href.
+            # Both must end up as bare "[9]": "[[9]](#_ftn9)" reads as an Obsidian wikilink
+            # and spawns a phantom note named "9" in the graph.
+            if "footnote-anchor" in classes or href.startswith(("#_ftn", "#footnote")):
+                out.append(f"[{text.strip('[]')}]")  # the note itself lands under ## Footnotes
+            elif href:
+                out.append(f"[{text}]({href})")
             else:
-                href = child.get("href", "")
-                out.append(f"[{text}]({href})" if href else text)
+                out.append(text)
         elif child.name == "br":
             out.append("\n")
         else:

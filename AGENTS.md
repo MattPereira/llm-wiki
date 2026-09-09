@@ -2,7 +2,7 @@
 
 ### Issue tracker
 
-Issues live as GitHub issues on `MattPereira/llm-wiki`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues live as GitHub issues on `MattPereira/market-llm-wiki`, managed via the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 

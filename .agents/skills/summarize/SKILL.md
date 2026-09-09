@@ -23,7 +23,7 @@ title: "Source title"
 creator: "Creator name"
 url: https://example.com/source
 upload_date: YYYY-MM-DD
-blurb: "One sentence saying what this source delivers."
+blurb: "One concise sentence saying what this source delivers."
 topics: ["macro", "crypto-markets"]
 ---
 ```
@@ -33,13 +33,11 @@ schema rejects a summary missing either.
 
 ### blurb
 
-One sentence ending in a period, written for someone deciding whether to open the
-summary. Say what the source delivers, not what it covers. Most sources here are
-recaps, earnings reviews, explainers or interviews rather than arguments, so lead
-with whatever the payload actually is — the numbers a quarter turned in, the events
-in the order they happened, the mechanism being explained, the position someone took.
+One concise sentence to help an AI agent decide whether to examine the summary.
+Say what the source delivers, not what it covers — the specific payload, whatever
+form it takes: the numbers, the events, the mechanism, the position someone took.
 "Maeda favors gradual accumulation into the bottom." beats "A video about crypto
-markets." Name the people and tickers that carry it.
+markets." Name the people and tickers that carry it, and end with a period.
 
 ### topics
 

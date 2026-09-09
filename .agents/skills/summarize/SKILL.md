@@ -51,7 +51,7 @@ grows a Topic per summary is worse than no vocabulary.
 ## 3. Regenerate `wiki/index.md`
 
 ```sh
-cd site && npm run generate-index
+cd site && pnpm generate-index
 ```
 
 The Index is generated from Summary frontmatter — never hand-edit it. The command

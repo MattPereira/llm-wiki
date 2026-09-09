@@ -4,12 +4,12 @@ The reading site: a static Astro build of `wiki/summaries/**/*.md`. See
 `docs/adr/0001-astro-static-site-no-runtime-state.md` for why it is Astro, static, and React-free.
 
 ```sh
-npm install
-npm run dev     # reads the working tree, so an uncommitted Summary previews
-npm run build   # fails by name and field on a Summary missing frontmatter
-npm test        # the pure lib/ seams: vocabulary parsing, grouping, formatting
-npm run check   # typecheck
-npm run generate-index  # rewrites wiki/index.md from Summary frontmatter
+pnpm install
+pnpm dev     # reads the working tree, so an uncommitted Summary previews
+pnpm build   # fails by name and field on a Summary missing frontmatter
+pnpm test    # the pure lib/ seams: vocabulary parsing, grouping, formatting
+pnpm check   # typecheck
+pnpm generate-index  # rewrites wiki/index.md from Summary frontmatter
 ```
 
 ## How a Summary becomes a page
@@ -64,11 +64,16 @@ what confines the index to them — and since Raw is never built, a phrase dropp
 from a Summary is not findable.
 
 `/search` is the only page that loads JavaScript, and it loads Pagefind's own
-inline. Under `npm run dev` there is no index yet, so the page says so; use
-`npm run build && npm run preview` to try search.
+inline. Under `pnpm dev` there is no index yet, so the page says so; use
+`pnpm build && pnpm preview` to try search.
 
 ## Deploying
 
 Vercel builds from the repo root, not this directory, because the content lives
 outside it. `vercel.json` at the root points the install, build, and output at
 `site/`. A push to `main` deploys.
+
+That also means Vercel looks for a lockfile at the root and finds none, so it
+cannot infer a package manager and would fall back to a pnpm far older than this
+lockfile. `vercel.json` therefore invokes `npx pnpm@<version>` explicitly; keep
+that version and `packageManager` in `package.json` in step.

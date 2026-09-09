@@ -14,7 +14,7 @@ const summaries = (await getCollection("summaries")).sort(
 >
   <header class="mb-12">
     <h1
-      class="font-serif text-3xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
     >
       LLM Wiki
     </h1>
@@ -28,17 +28,17 @@ const summaries = (await getCollection("summaries")).sort(
       summaries.map((summary) => (
         <li class="py-6 first:pt-0">
           <a class="group block" href={permalink(summary.id)}>
-            <h2 class="font-serif text-xl leading-snug font-semibold text-stone-900 group-hover:underline group-hover:decoration-stone-400 group-hover:underline-offset-4 dark:text-stone-100">
+            <h2 class="font-serif text-2xl leading-snug font-semibold text-stone-900 group-hover:underline group-hover:decoration-stone-400 group-hover:underline-offset-4 dark:text-stone-100">
               {summary.data.title}
             </h2>
-            <p class="mt-1 text-sm text-stone-500 dark:text-stone-500">
+            <p class="mt-1.5 text-base text-stone-500 dark:text-stone-500">
               {summary.data.creator}
               <span aria-hidden="true"> · </span>
               <time datetime={summary.data.upload_date.toISOString()}>
                 {formatDate(summary.data.upload_date)}
               </time>
             </p>
-            <p class="mt-2 leading-relaxed text-stone-700 dark:text-stone-400">
+            <p class="mt-2.5 leading-relaxed text-stone-700 dark:text-stone-400">
               {summary.data.blurb}
             </p>
           </a>

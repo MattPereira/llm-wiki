@@ -36,3 +36,9 @@ only way to change what it shows.
   indexes built HTML, which is Summaries only.
 - Permalinks mirror the file tree (`/<creator>/<date>-<slug>`). A creator rename
   breaks old URLs; acceptable for a single reader.
+
+## Deployment
+
+Vercel builds from the repo root with `vercel.json`, not with its Root Directory
+pointed at `site/`. The Root Directory setting prunes everything above it, which
+would take `wiki/summaries/` — the entire content source — out of the build.

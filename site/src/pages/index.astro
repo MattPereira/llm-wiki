@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../layouts/Base.astro";
+import { formatDate, permalink } from "../lib/format";
+
+const summaries = (await getCollection("summaries")).sort(
+  (a, b) => b.data.upload_date.valueOf() - a.data.upload_date.valueOf(),
+);
+---
+
+<Base
+  title="Market Wiki"
+  description="Summaries of the things worth reading, written by an agent."
+>
+  <header class="mb-12">
+    <h1
+      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+    >
+      Market Wiki
+    </h1>
+    <p class="mt-2 text-stone-600 dark:text-stone-400">
+      Summaries of the things worth reading, so you can decide what to open.
+    </p>
+  </header>
+
+  <ul class="divide-y divide-stone-200 dark:divide-stone-800">
+    {
+      summaries.map((summary) => (
+        <li class="py-6 first:pt-0">
+          <a class="group block" href={permalink(summary.id)}>
+            <h2 class="font-serif text-2xl leading-snug font-semibold text-stone-900 group-hover:underline group-hover:decoration-stone-400 group-hover:underline-offset-4 dark:text-stone-100">
+              {summary.data.title}
+            </h2>
+            <p class="mt-1.5 text-base text-stone-500 dark:text-stone-500">
+              {summary.data.creator}
+              <span aria-hidden="true"> · </span>
+              <time datetime={summary.data.upload_date.toISOString()}>
+                {formatDate(summary.data.upload_date)}
+              </time>
+            </p>
+            <p class="mt-2.5 leading-relaxed text-stone-700 dark:text-stone-400">
+              {summary.data.blurb}
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

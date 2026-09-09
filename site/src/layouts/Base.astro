@@ -1,0 +1,27 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="icon" href="data:," />
+  </head>
+  <body
+    class="bg-white text-lg text-stone-800 antialiased dark:bg-stone-950 dark:text-stone-300"
+  >
+    <div class="mx-auto max-w-4xl px-5 py-10 sm:px-6 sm:py-16">
+      <slot />
+    </div>
+  </body>
+</html>

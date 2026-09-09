@@ -7,6 +7,8 @@ host: Avi
 guests: ["Se (co-founder, FOMO)"]
 url: https://www.youtube.com/watch?v=QVDm--18QBs
 upload_date: 2026-09-04
+blurb: "Avi and FOMO's Se argue attention is the tradable primitive across crypto and equities, so buy the leaders capturing it; 94.4% of FOMO users still lose money."
+topics: ["macro", "crypto-markets", "trading-culture"]
 ---
 
 # MARKET UPDATE: Hot Payrolls, Hotter Memecoins, And Se From FOMO Talks The Future Of Trading

@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Iowan Old Style", "Charter", "Georgia", ui-serif, serif;
+}
+
+/* Reading measure and rhythm are the whole product here, so the prose scale is
+   set once rather than sprinkled across pages. */
+@layer base {
+  html {
+    color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
+  }
+}

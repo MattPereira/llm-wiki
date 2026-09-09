@@ -1,0 +1,80 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import { formatDate, sourceLabel } from "../../lib/format";
+import { formatDuration, readDurationSeconds } from "../../lib/duration";
+import { dirname, resolve } from "node:path";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const summaries = await getCollection("summaries");
+
+  return summaries.map((summary) => {
+    const [creator, ...rest] = summary.id.split("/");
+    return { params: { creator, slug: rest.join("/") }, props: { summary } };
+  });
+};
+
+interface Props {
+  summary: CollectionEntry<"summaries">;
+}
+
+const { summary } = Astro.props;
+const { Content } = await render(summary);
+
+// `source` is written relative to the Summary, so resolve it against the Summary.
+const rawPath = resolve(dirname(summary.filePath!), summary.data.source);
+const seconds = readDurationSeconds(rawPath);
+---
+
+<Base title={summary.data.title} description={summary.data.blurb}>
+  <a
+    class="text-sm text-stone-500 hover:text-stone-800 dark:hover:text-stone-200"
+    href="/">← All summaries</a
+  >
+
+  <article class="mt-8">
+    <header class="mb-10">
+      <h1
+        class="font-serif text-3xl leading-tight font-semibold tracking-tight text-balance text-stone-900 dark:text-stone-100"
+      >
+        {summary.data.title}
+      </h1>
+      <p class="mt-3 text-sm text-stone-500 dark:text-stone-500">
+        {summary.data.creator}
+        <span aria-hidden="true"> · </span>
+        <time datetime={summary.data.upload_date.toISOString()}>
+          {formatDate(summary.data.upload_date)}
+        </time>
+        {
+          seconds && (
+            <>
+              <span aria-hidden="true"> · </span>
+              {formatDuration(seconds)}
+            </>
+          )
+        }
+      </p>
+    </header>
+
+    <div
+      class="prose prose-stone dark:prose-invert prose-headings:font-serif prose-headings:tracking-tight prose-h2:mt-10 prose-h2:text-xl prose-h3:text-lg prose-p:leading-[1.75] prose-a:underline-offset-2 prose-blockquote:not-italic prose-blockquote:font-normal prose-code:before:content-none prose-code:after:content-none prose-code:font-normal prose-th:text-left prose-td:align-top max-w-none"
+    >
+      <Content />
+    </div>
+
+    <footer
+      class="mt-12 border-t border-stone-200 pt-6 text-sm dark:border-stone-800"
+    >
+      <a
+        class="text-stone-600 underline underline-offset-4 hover:text-stone-900 dark:text-stone-400 dark:hover:text-stone-100"
+        href={summary.data.url}
+        rel="noopener">{sourceLabel(summary.data.url)} ↗</a
+      >
+      <p class="mt-2 text-stone-500">
+        Summarized from {summary.data.creator}. This page is a summary, not the
+        original.
+      </p>
+    </footer>
+  </article>
+</Base>

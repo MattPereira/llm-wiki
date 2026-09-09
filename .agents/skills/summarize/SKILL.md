@@ -20,7 +20,6 @@ type: summary
 agent: codex
 source: ../../raw/<creator>/<date>-<title>.md
 title: "Source title"
-creator: "Creator name"
 url: https://example.com/source
 upload_date: YYYY-MM-DD
 blurb: "One concise sentence saying what this source delivers."

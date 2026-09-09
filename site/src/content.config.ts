@@ -5,12 +5,15 @@ import { topicSlug } from "./lib/topics.js";
 
 // Strict on purpose: a Summary missing a field fails the build by name, which is
 // how the summarize skill finds out it forgot one. See docs/adr/0001.
+//
+// No `creator` field: the Creator is the folder the Summary sits in, and the
+// display name comes from creators.toml. A name in frontmatter would be a second
+// copy nothing validates, free to drift from the one every consumer renders.
 const summaries = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "../wiki/summaries" }),
   schema: z.object({
     type: z.literal("summary"),
     title: z.string(),
-    creator: z.string(),
     source: z.string(),
     url: z.string().url(),
     upload_date: z.date(),

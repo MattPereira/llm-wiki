@@ -13,15 +13,15 @@ interface Props {
 const { summaries, showCreator = true } = Astro.props;
 ---
 
-<ul class="divide-y divide-stone-200 dark:divide-stone-800">
+<ul class="divide-edge divide-y">
   {
     summaries.map((summary) => (
       <li class="py-6 first:pt-0">
         <a class="group block" href={permalink(summary.id)}>
-          <h2 class="font-serif text-2xl leading-snug font-semibold text-stone-900 group-hover:underline group-hover:decoration-stone-400 group-hover:underline-offset-4 dark:text-stone-100">
+          <h2 class="font-serif text-2xl leading-snug font-semibold text-ink-strong group-hover:decoration-ink-muted group-hover:underline group-hover:underline-offset-4">
             {summary.data.title}
           </h2>
-          <p class="mt-1.5 text-base text-stone-500 dark:text-stone-500">
+          <p class="mt-1.5 text-ink-muted text-base">
             {showCreator && (
               <>
                 {creatorName(creatorSlug(summary.id))}
@@ -32,7 +32,7 @@ const { summaries, showCreator = true } = Astro.props;
               {formatDate(summary.data.upload_date)}
             </time>
           </p>
-          <p class="mt-2.5 leading-relaxed text-stone-700 dark:text-stone-400">
+          <p class="mt-2.5 max-w-[70ch] text-ink leading-relaxed">
             {summary.data.blurb}
           </p>
         </a>

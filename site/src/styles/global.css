@@ -1,16 +1,127 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Iowan Old Style", "Charter", "Georgia", ui-serif, serif;
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/inter-latin-400-normal.woff2") format("woff2");
 }
 
-/* Reading measure and rhythm are the whole product here, so the prose scale is
-   set once rather than sprinkled across pages. */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/inter-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/source-serif-4-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/source-serif-4-latin-600-normal.woff2") format("woff2");
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif:
+    "Source Serif 4", "Iowan Old Style", "Charter", "Georgia", ui-serif, serif;
+}
+
+/* Semantic colors, so a page never names a stone shade and never carries a
+   `dark:` variant — the token flips once, below. */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-strong: var(--ink-strong);
+  --color-ink-muted: var(--ink-muted);
+  --color-edge: var(--edge);
+  --color-accent: var(--accent);
+}
+
+:root {
+  --surface: var(--color-white);
+  --surface-raised: var(--color-stone-100);
+  --ink: var(--color-stone-800);
+  --ink-strong: var(--color-stone-900);
+  --ink-muted: var(--color-stone-500);
+  --edge: var(--color-stone-200);
+  --accent: var(--color-amber-700);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: var(--color-stone-900);
+    --surface-raised: var(--color-stone-800);
+    --ink: var(--color-stone-300);
+    --ink-strong: var(--color-stone-200);
+    /* stone-500 is legible on white but not on stone-900. */
+    --ink-muted: var(--color-stone-400);
+    --edge: var(--color-stone-700);
+    --accent: var(--color-amber-400);
+  }
+}
+
 @layer base {
   html {
     color-scheme: light dark;
     -webkit-text-size-adjust: 100%;
   }
+
+  body {
+    /* cv11: single-storey `l`, which stops it colliding with `I` and `1`. */
+    font-feature-settings: "cv11";
+  }
+}
+
+/* Drives @tailwindcss/typography off the same tokens, which is what lets the
+   article drop `prose-stone dark:prose-invert`. */
+.prose {
+  --tw-prose-body: var(--ink);
+  --tw-prose-headings: var(--ink-strong);
+  --tw-prose-lead: var(--ink);
+  --tw-prose-links: var(--accent);
+  --tw-prose-bold: var(--ink-strong);
+  --tw-prose-counters: var(--ink-muted);
+  --tw-prose-bullets: var(--edge);
+  --tw-prose-hr: var(--edge);
+  --tw-prose-quotes: var(--ink);
+  --tw-prose-quote-borders: var(--edge);
+  --tw-prose-captions: var(--ink-muted);
+  --tw-prose-code: var(--ink-strong);
+  --tw-prose-pre-code: var(--ink);
+  --tw-prose-pre-bg: var(--surface-raised);
+  --tw-prose-th-borders: var(--edge);
+  --tw-prose-td-borders: var(--edge);
+}
+
+/* Shiki emits both themes inline; this is the dark half of the swap. */
+@media (prefers-color-scheme: dark) {
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+  }
+}
+
+/* Pagefind ships its own stylesheet, so it only follows the site through these. */
+#search {
+  --pagefind-ui-font: var(--font-sans);
+  --pagefind-ui-background: var(--surface);
+  --pagefind-ui-text: var(--ink);
+  --pagefind-ui-primary: var(--accent);
+  --pagefind-ui-border: var(--edge);
+  --pagefind-ui-tag: var(--surface-raised);
 }

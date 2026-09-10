@@ -13,15 +13,15 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<ul class="divide-y divide-stone-200 dark:divide-stone-800">
+<ul class="divide-edge divide-y">
   {
     items.map((item) => (
       <li class="py-5 first:pt-0">
         <a class="group block" href={item.href}>
-          <h2 class="font-serif text-2xl font-semibold text-stone-900 group-hover:underline group-hover:decoration-stone-400 group-hover:underline-offset-4 dark:text-stone-100">
+          <h2 class="font-serif text-2xl font-semibold text-ink-strong group-hover:decoration-ink-muted group-hover:underline group-hover:underline-offset-4">
             {item.name}
           </h2>
-          <p class="mt-1 text-base text-stone-500">{item.note}</p>
+          <p class="mt-1 max-w-[70ch] text-ink-muted text-base">{item.note}</p>
         </a>
       </li>
     ))

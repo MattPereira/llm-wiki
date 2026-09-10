@@ -31,13 +31,13 @@ const name = topicName(Astro.params.topic!);
   description={`Every summary tagged ${name}, across creators.`}
 >
   <header class="mb-12">
-    <p class="text-base text-stone-500">Topic</p>
+    <p class="text-ink-muted text-base">Topic</p>
     <h1
-      class="font-serif text-4xl font-semibold tracking-tight text-stone-900 dark:text-stone-100"
+      class="font-serif text-3xl font-semibold tracking-tight text-ink-strong"
     >
       {name}
     </h1>
-    <p class="mt-2 text-stone-600 dark:text-stone-400">
+    <p class="text-ink mt-2">
       {
         summaries.length === 0
           ? "No summaries carry this topic yet."

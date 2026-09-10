@@ -9,3 +9,7 @@
 ## [2026-09-08] ingest | Crypto is Bottoming. Why HYPE and ZEC will go PARABOLIC
   - Added: [summary](summaries/taiki-maeda/2026-07-15-crypto-is-bottoming-why-hype-and-zec-will-go-parabolic.md)
   - Notes: First Taiki Maeda entry. Raw transcript already present. Captures gradual bottoming-process accumulation, the RWA-perp case for HYPE/LIT, and ZEC's privacy/quantum/Saylor narrative. Tensions noted: a bottom thesis that allows new Q4 lows, incentivized perp activity, and no proof that Orchard was never exploited.
+
+## [2026-09-10] ingest | MARKET UPDATE: Hunter Biden Scams Us, $INTC Rips, Commodities Onchain, Anthropic's Skynet Risk
+  - Added: [summary](summaries/1000x/2026-09-10-market-update-hunter-biden-scams-us-intc-rips-commodities-onchain-anthropics-sky.md)
+  - Notes: Direct reversal of the 09-04 episode: 80K BTC was the bull trigger there, now the failure to break it turns Avi short-term bearish with a sub-70K target and a rotation into memory/AI equities. Reuses the same AI-trade-siphons-crypto risk he flagged as hypothetical last week. Also debunks the viral Coinalyze altcoin-OI-tops-Bitcoin top signal (the bucket included on-chain equities). Internal tension: bullish AI melt-up while noting memory demand is cooling on price.

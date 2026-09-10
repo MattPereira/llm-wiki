@@ -10,7 +10,7 @@
     "check": "astro check",
     "test": "vitest run",
     "postbuild": "pagefind --site dist",
-    "generate-index": "tsx scripts/generate-index.ts"
+    "generate-index": "vite-node scripts/generate-index.ts"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.1",
@@ -30,6 +30,7 @@
     "pagefind": "^1.5.2",
     "tsx": "^4.23.13",
     "typescript": "^6.0.3",
+    "vite-node": "^6.0.0",
     "vitest": "^5.0.0"
   }
 }

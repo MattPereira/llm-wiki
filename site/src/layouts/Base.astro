@@ -20,7 +20,7 @@ const links = [
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="system">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -41,6 +41,21 @@ const links = [
       type="font/woff2"
       crossorigin
     />
+    <script is:inline>
+      // Blocking on purpose: both the palette and the toggle label have to be
+      // settled before first paint, or the page flashes the wrong theme.
+      (() => {
+        let stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch {
+          // Storage can throw when cookies are blocked; system default is fine.
+        }
+        const theme = stored === "light" || stored === "dark" ? stored : "system";
+        document.documentElement.dataset.theme = theme;
+        if (theme !== "system") document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <slot name="head" />
   </head>
   <body class="bg-surface text-ink text-lg antialiased">
@@ -65,8 +80,35 @@ const links = [
             </a>
           ))
         }
+        <button
+          class="text-ink-muted hover:text-ink-strong ml-auto pb-4 text-base"
+          id="theme-toggle"
+          type="button"
+        >
+          <span class="sr-only">Theme:</span>
+          <span data-theme-label="system">Auto</span>
+          <span data-theme-label="light">Light</span>
+          <span data-theme-label="dark">Dark</span>
+        </button>
       </nav>
       <slot />
     </div>
+    <script is:inline>
+      document.getElementById("theme-toggle").addEventListener("click", () => {
+        const root = document.documentElement;
+        const order = ["system", "light", "dark"];
+        const next = order[(order.indexOf(root.dataset.theme) + 1) % order.length];
+
+        root.dataset.theme = next;
+        root.style.colorScheme = next === "system" ? "" : next;
+
+        try {
+          if (next === "system") localStorage.removeItem("theme");
+          else localStorage.setItem("theme", next);
+        } catch {
+          // Preference just won't survive the reload.
+        }
+      });
+    </script>
   </body>
 </html>

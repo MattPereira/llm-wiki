@@ -51,27 +51,17 @@
   --color-accent: var(--accent);
 }
 
+/* light-dark() keys off the `color-scheme` property, so the toggle only has to
+   set that one property — no second palette under a class selector. */
 :root {
-  --surface: var(--color-white);
-  --surface-raised: var(--color-stone-100);
-  --ink: var(--color-stone-800);
-  --ink-strong: var(--color-stone-900);
-  --ink-muted: var(--color-stone-500);
-  --edge: var(--color-stone-200);
-  --accent: var(--color-amber-700);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --surface: var(--color-stone-900);
-    --surface-raised: var(--color-stone-800);
-    --ink: var(--color-stone-300);
-    --ink-strong: var(--color-stone-200);
-    /* stone-500 is legible on white but not on stone-900. */
-    --ink-muted: var(--color-stone-400);
-    --edge: var(--color-stone-700);
-    --accent: var(--color-amber-400);
-  }
+  --surface: light-dark(var(--color-white), var(--color-stone-900));
+  --surface-raised: light-dark(var(--color-stone-100), var(--color-stone-800));
+  --ink: light-dark(var(--color-stone-800), var(--color-stone-300));
+  --ink-strong: light-dark(var(--color-stone-900), var(--color-stone-200));
+  /* stone-500 is legible on white but not on stone-900. */
+  --ink-muted: light-dark(var(--color-stone-500), var(--color-stone-400));
+  --edge: light-dark(var(--color-stone-200), var(--color-stone-700));
+  --accent: light-dark(var(--color-amber-700), var(--color-amber-400));
 }
 
 @layer base {
@@ -107,13 +97,29 @@
   --tw-prose-td-borders: var(--edge);
 }
 
-/* Shiki emits both themes inline; this is the dark half of the swap. */
-@media (prefers-color-scheme: dark) {
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    background-color: var(--shiki-dark-bg) !important;
-  }
+/* shikiConfig sets defaultColor:false, so both themes arrive as custom
+   properties and neither is baked in. `.prose pre` outranks a bare
+   `.astro-code`, hence the doubled selector. */
+.astro-code,
+.astro-code span {
+  color: light-dark(var(--shiki-light), var(--shiki-dark));
+}
+
+.astro-code,
+.prose pre.astro-code {
+  background-color: light-dark(var(--shiki-light-bg), var(--shiki-dark-bg));
+}
+
+/* The toggle cycles system -> light -> dark, and `data-theme` on <html> is set
+   before first paint, so the label never flashes the wrong state. */
+[data-theme-label] {
+  display: none;
+}
+
+:root[data-theme="system"] [data-theme-label="system"],
+:root[data-theme="light"] [data-theme-label="light"],
+:root[data-theme="dark"] [data-theme-label="dark"] {
+  display: inline;
 }
 
 /* Pagefind ships its own stylesheet, so it only follows the site through these. */

@@ -1,15 +1,11 @@
 /**
  * Regenerates `wiki/index.md` from Summary frontmatter. Run by the summarize
  * skill at the end of a run; the Index is a derived artifact, never hand-edited.
- *
- * Runs under vite-node, not plain Node: the vocabulary modules it pulls in load
- * their .toml with a Vite `?raw` import so the dev server hot-reloads them.
  */
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { load } from "js-yaml";
-import { creatorName } from "../src/lib/creators.js";
 import { renderIndex, type IndexedSummary } from "../src/lib/index-markdown.js";
 import { summarySchema } from "../src/lib/summary-schema.js";
 
@@ -43,5 +39,5 @@ const files = readdirSync(SUMMARIES, { recursive: true, encoding: "utf8" })
   .map((entry) => join(SUMMARIES, entry))
   .sort();
 
-writeFileSync(INDEX, renderIndex(files.map(read), creatorName));
+writeFileSync(INDEX, renderIndex(files.map(read)));
 console.log(`wiki/index.md: ${files.length} summaries`);

@@ -1,14 +1,12 @@
 import { z } from "astro/zod";
-import { nameFor, parseNamedTables } from "./vocabulary.js";
-// Symlink to the repo root, imported for the same reason as creators.toml.
-import toml from "../topics.toml?raw";
+import { loadNamedTables, nameFor, parseNamedTables } from "./vocabulary.js";
 
 const FILE = "topics.toml";
 
 export const parseTopics = (toml: string): Map<string, string> =>
   parseNamedTables(toml, FILE);
 
-const topics = parseTopics(toml);
+const topics = loadNamedTables(FILE);
 
 export const topicName = (slug: string): string => nameFor(topics, slug, FILE);
 

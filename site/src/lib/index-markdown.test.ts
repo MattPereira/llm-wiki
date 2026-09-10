@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { creatorName } from "./creators.js";
 import { renderIndex } from "./index-markdown.js";
 
 const summary = (id: string, date: string, title: string, blurb: string) => ({
@@ -28,7 +27,7 @@ const taiki = summary(
 
 describe("renderIndex", () => {
   it("groups entries under a heading per Creator, ordered by display name", () => {
-    const headings = renderIndex([taiki, kyla], creatorName)
+    const headings = renderIndex([taiki, kyla])
       .split("\n")
       .filter((line) => line.startsWith("## "));
 
@@ -36,7 +35,7 @@ describe("renderIndex", () => {
   });
 
   it("orders entries within a Creator newest first", () => {
-    const titles = renderIndex([kylaOlder, kyla], creatorName)
+    const titles = renderIndex([kylaOlder, kyla])
       .split("\n")
       .filter((line) => line.startsWith("- "))
       .map((line) => line.slice(3, line.indexOf("]")));
@@ -45,7 +44,7 @@ describe("renderIndex", () => {
   });
 
   it("links each entry relative to wiki/index.md, with date, Creator, and Blurb", () => {
-    expect(renderIndex([kyla], creatorName)).toBe(
+    expect(renderIndex([kyla])).toBe(
       [
         "# Index",
         "",
@@ -58,6 +57,6 @@ describe("renderIndex", () => {
   });
 
   it("still produces a readable file when there are no Summaries", () => {
-    expect(renderIndex([], creatorName)).toBe("# Index\n");
+    expect(renderIndex([])).toBe("# Index\n");
   });
 });

@@ -10,15 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: npm
-          cache-dependency-path: site/package-lock.json
-      - run: npm ci
-        working-directory: site
-      - run: npm test
-        working-directory: site
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
       # A Summary missing a required field fails here, before it can reach a deploy.
-      - run: npm run build
-        working-directory: site
+      - run: pnpm build

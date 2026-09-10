@@ -1,0 +1,13 @@
+{
+  "name": "market-wiki",
+  "private": true,
+  "packageManager": "pnpm@11.10.0",
+  "scripts": {
+    "dev": "pnpm -F wiki-site dev",
+    "build": "pnpm -F wiki-site build",
+    "preview": "pnpm -F wiki-site preview",
+    "check": "pnpm -F wiki-site check",
+    "test": "pnpm -F wiki-site test",
+    "generate-index": "pnpm -F wiki-site generate-index"
+  }
+}

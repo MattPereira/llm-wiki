@@ -3,6 +3,9 @@
 The reading site: a static Astro build of `wiki/summaries/**/*.md`. See
 `docs/adr/0001-astro-static-site-no-runtime-state.md` for why it is Astro, static, and React-free.
 
+Every script also runs from the repo root (`pnpm dev`, `pnpm build`, ...), which
+is usually what you want since the content lives up there.
+
 ```sh
 pnpm install
 pnpm dev     # reads the working tree, so an uncommitted Summary previews
@@ -70,10 +73,6 @@ inline. Under `pnpm dev` there is no index yet, so the page says so; use
 ## Deploying
 
 Vercel builds from the repo root, not this directory, because the content lives
-outside it. `vercel.json` at the root points the install, build, and output at
-`site/`. A push to `main` deploys.
-
-That also means Vercel looks for a lockfile at the root and finds none, so it
-cannot infer a package manager and would fall back to a pnpm far older than this
-lockfile. `vercel.json` therefore invokes `npx pnpm@<version>` explicitly; keep
-that version and `packageManager` in `package.json` in step.
+outside it. The root is a pnpm workspace (`pnpm-workspace.yaml`), so the lockfile
+and `packageManager` sit there and Vercel infers pnpm on its own — `vercel.json`
+only needs `buildCommand` and `outputDirectory`. A push to `main` deploys.

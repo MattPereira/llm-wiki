@@ -74,5 +74,10 @@ inline. Under `pnpm dev` there is no index yet, so the page says so; use
 
 Vercel builds from the repo root, not this directory, because the content lives
 outside it. The root is a pnpm workspace (`pnpm-workspace.yaml`), so the lockfile
-and `packageManager` sit there and Vercel infers pnpm on its own — `vercel.json`
-only needs `buildCommand` and `outputDirectory`. A push to `main` deploys.
+and `packageManager` sit there and Vercel infers pnpm on its own. A push to
+`main` deploys.
+
+`vercel.json` still spells out `installCommand` even though detection would
+cover it, because the project has a dashboard-level Install Command left over
+from the npm era and `vercel.json` is what overrides it. Clear that setting in
+the dashboard and this key can go.
